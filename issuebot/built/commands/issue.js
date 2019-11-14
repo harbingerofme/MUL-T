@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const issuebot_1 = require("../issuebot");
 const discord_harmony_1 = require("discord-harmony");
-const config = require('../../config.json');
+const config_1 = require("../config");
 class IssueCommand extends discord_harmony_1.Command {
     execute() {
         if (!this.args) {
@@ -13,7 +13,7 @@ class IssueCommand extends discord_harmony_1.Command {
             .replace("{CHANNEL}", this.message.channel.name)
             .replace("{USER}", this.message.author.username);
         issuebot_1.default.gitHub.api.issues.create({
-            owner: config.name,
+            owner: config_1.config.githubName,
             repo: this.args[0],
             title: this.args[1],
             body: issueBody
@@ -38,6 +38,8 @@ const ISSUE_TEMPLATE = `
 Beep, boop, I'm [a bot](https://github.com/LeagueSandbox/IssueBot)! This issue was created by \`@{USER}\` in \`#{CHANNEL}\`.
 `;
 const ERROR_TEMPLATE = `
+Command should be: !issue {Repository} {Title} {Message}
+Example: !issue "GameServer" "Make a beginner bot AI script" "Make a game script to control a bot champion. Buy items, go to lane, try to beat Nexus."
 An error occurred while creating the issue.
 Details:
 \`\`\`
