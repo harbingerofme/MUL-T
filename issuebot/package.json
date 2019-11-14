@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "tsc -p . -w",
     "start": "tsc -p . && node built/issuebot.js",
+    "debug": "tsc -p . && node built/debug.js",
     "build": "tsc -p .",
     "start-nobuild": "node built/issuebot.js",
     "test": "echo \"No tests specified\"",
@@ -19,14 +20,18 @@
     "url": "git://github.com/LeagueSandbox/IssueBot.git"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.5",
     "@types/node": "^6.0.53",
+    "@types/request": "^2.48.3",
     "typescript": "^2.1.4",
     "webpack": "^1.14.0"
   },
   "dependencies": {
+    "atob": "^2.1.2",
     "github": "^7.1.0",
-    "node-opus": "^0.2.4",
+    "jsonwebtoken": "^8.5.1",
     "opusscript": "0.0.1",
+    "request": "^2.88.0",
     "typescript": "^2.1.4"
   }
 }

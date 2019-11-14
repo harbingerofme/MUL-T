@@ -76,3 +76,7 @@ You can provide the required options via environment variables as follows:
 - `GITHUB_NAME`: The github user/organization name
 - `GITHUB_TOKEN`: The github user access token
 - `DISCORD_TOKEN`: The discord bot token
+- `THUNDERSTORE_API_SECRET`: base64 encoded secret for the Thunderstore API
+- `THUNDERSTORE_API_ALGORITHM`: HS256 or RS256, algorithm of the JWT
+- `THUNDERSTORE_API_KEY_ID`: Thunderstore API key ID
+- `THUNDERSTORE_API_URL`: Thunderstore API url
