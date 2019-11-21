@@ -32,8 +32,8 @@ class DeprecateCommand extends discord_harmony_1.Command {
 exports.DeprecateCommand = DeprecateCommand;
 const ERROR_TEMPLATE = `
 Command should be: !deprecate {Package Full Name}
-Example: !issue "bbepis-BepInExPack"
-An error occurred while creating the issue.
+Example: !deprecate "bbepis-BepInExPack"
+An error occurred while executing the command.
 Details:
 \`\`\`
 {PLACEHOLDER}

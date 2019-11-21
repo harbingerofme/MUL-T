@@ -2,12 +2,14 @@ import * as Harmony from 'discord-harmony'
 import * as atob from 'atob'
 import { GitHub } from './github'
 import { Thunderstore } from './thunderstore'
-import { IssueCommand, DeprecateCommand } from './commands'
+import { PasteDB } from './pasteDB'
+import { IssueCommand, DeprecateCommand, PasterCommand } from './commands'
 import { config } from './config'
 
 export class IssueBot extends Harmony.Bot {
   gitHub: GitHub
   thunderstore: Thunderstore
+  pasteDB : PasteDB
 
   constructor() {
     super()
@@ -18,12 +20,14 @@ export class IssueBot extends Harmony.Bot {
       config.thunderstoreApiAlgorithm,
       config.thunderstoreApiUrl,
     )
+    this.pasteDB = new PasteDB(this.client);
   }
 
   loadCommands() {
     super.loadCommands()
     this.commandManager.addCommand('issue', IssueCommand)
     this.commandManager.addCommand('deprecate', DeprecateCommand)
+    this.commandManager.addCommand(`paster`, PasterCommand);
   }
 }
 
